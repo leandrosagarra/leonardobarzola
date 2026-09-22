@@ -7,8 +7,16 @@ interface ContactSectionProps {
 }
 
 export function ContactSection({ contact, schedule }: ContactSectionProps) {
-  const cleanPhone = contact.phone.replace(/[^0-9]/g, '');
-  const cleanWhatsapp = contact.whatsappNumber.replace(/[^0-9]/g, '');
+  const address = contact?.address || 'Calle 48 entre 12 y 13';
+  const city = contact?.city || 'La Plata, Buenos Aires';
+  const phone = contact?.phone || '0221 618-6574';
+  const whatsappNumber = contact?.whatsappNumber || '0221 618-6574';
+  const weekdays = schedule?.weekdays || '9:00 a 16:00';
+  const friday = schedule?.friday || '9:00 a 14:30';
+  const weekend = schedule?.weekend || 'Cerrado';
+
+  const cleanPhone = phone.replace(/[^0-9]/g, '');
+  const cleanWhatsapp = whatsappNumber.replace(/[^0-9]/g, '');
   const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
     'Calle 48 entre 12 y 13, La Plata, Buenos Aires'
   )}`;
@@ -51,10 +59,10 @@ export function ContactSection({ contact, schedule }: ContactSectionProps) {
                     Dirección
                   </div>
                   <div className="text-base font-semibold text-[#2A201A] mt-0.5">
-                    {contact.address}
+                    {address}
                   </div>
                   <div className="text-xs text-[#6F5E53]">
-                    {contact.city}
+                    {city}
                   </div>
                 </div>
               </div>
@@ -72,7 +80,7 @@ export function ContactSection({ contact, schedule }: ContactSectionProps) {
                     href={`tel:${cleanPhone}`}
                     className="text-lg font-bold text-[#2A201A] hover:text-[#9A4E38] transition-colors mt-0.5 block"
                   >
-                    {contact.phone}
+                    {phone}
                   </a>
                   <div className="text-xs text-[#6F5E53]">
                     Línea disponible en horario de escribanía
@@ -92,15 +100,15 @@ export function ContactSection({ contact, schedule }: ContactSectionProps) {
                   <div className="space-y-1.5 text-xs sm:text-sm text-[#4A3B31]">
                     <div className="flex justify-between py-1 border-b border-[#F5ECE0]">
                       <span className="font-medium text-[#29201B]">Lunes a jueves</span>
-                      <span className="font-semibold">{schedule.weekdays}</span>
+                      <span className="font-semibold">{weekdays}</span>
                     </div>
                     <div className="flex justify-between py-1 border-b border-[#F5ECE0]">
                       <span className="font-medium text-[#29201B]">Viernes</span>
-                      <span className="font-semibold">{schedule.friday}</span>
+                      <span className="font-semibold">{friday}</span>
                     </div>
                     <div className="flex justify-between py-1">
                       <span className="text-[#8B7565]">Sábados y domingos</span>
-                      <span className="text-[#994732] font-semibold">{schedule.weekend}</span>
+                      <span className="text-[#994732] font-semibold">{weekend}</span>
                     </div>
                   </div>
                 </div>

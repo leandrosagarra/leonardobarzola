@@ -67,7 +67,7 @@ export function ServicesSection({ services, onOpenChat }: ServicesSectionProps) 
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
-          {services.map((service) => {
+          {(services || []).map((service) => {
             const isExpanded = expandedId === service.id;
             return (
               <div
@@ -114,7 +114,7 @@ export function ServicesSection({ services, onOpenChat }: ServicesSectionProps) 
                             <span>Documentación habitual orientativa</span>
                           </h4>
                           <ul className="space-y-1.5 text-xs text-[#55463D]">
-                            {service.requirements.map((req, idx) => (
+                            {(service.requirements || []).map((req, idx) => (
                               <li key={idx} className="flex items-start gap-2">
                                 <span className="text-[#9A4E38] font-bold mt-0.5">•</span>
                                 <span>{req}</span>

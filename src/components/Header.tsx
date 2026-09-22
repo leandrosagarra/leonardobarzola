@@ -10,6 +10,8 @@ interface HeaderProps {
 
 export function Header({ contact, onOpenAdmin, onOpenChat }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const phone = contact?.phone || '0221 618-6574';
+  const cleanPhone = phone.replace(/[^0-9]/g, '');
 
   const navLinks = [
     { label: 'Inicio', href: '#inicio' },
@@ -56,12 +58,12 @@ export function Header({ contact, onOpenAdmin, onOpenChat }: HeaderProps) {
           {/* Header Action Buttons */}
           <div className="hidden sm:flex items-center gap-2.5">
             <a
-              href={`tel:${contact.phone.replace(/[^0-9]/g, '')}`}
+              href={`tel:${cleanPhone}`}
               className="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold rounded-lg text-[#362C26] bg-[#EFE9DF] hover:bg-[#E4DCCE] transition-colors border border-[#DDD3C2] shadow-2xs"
-              title={`Llamar a ${contact.phone}`}
+              title={`Llamar a ${phone}`}
             >
               <Phone className="w-3.5 h-3.5 text-[#9A4E38]" />
-              <span>{contact.phone}</span>
+              <span>{phone}</span>
             </a>
 
             <button
@@ -112,11 +114,11 @@ export function Header({ contact, onOpenAdmin, onOpenChat }: HeaderProps) {
 
           <div className="mt-5 pt-4 border-t border-[#EAE3D6]">
             <a
-              href={`tel:${contact.phone.replace(/[^0-9]/g, '')}`}
+              href={`tel:${cleanPhone}`}
               className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg text-sm font-semibold bg-[#42342D] text-[#FAF6F0]"
             >
               <Phone className="w-4 h-4 text-[#D8C7B0]" />
-              <span>Llamar al {contact.phone}</span>
+              <span>Llamar al {phone}</span>
             </a>
           </div>
 

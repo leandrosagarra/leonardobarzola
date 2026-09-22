@@ -47,7 +47,7 @@ export function UsefulInfoSection({ usefulDocs, onOpenChat }: UsefulInfoSectionP
 
         {/* 4 Core Document Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
-          {usefulDocs.map((doc) => (
+          {(usefulDocs || []).map((doc) => (
             <div
               key={doc.id}
               className="bg-[#FAF7F2] p-6 rounded-xl border border-[#E3D8C8] shadow-xs flex flex-col justify-between"

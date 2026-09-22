@@ -36,7 +36,7 @@ export function FaqSection({ faqs, onOpenChat }: FaqSectionProps) {
 
         {/* Accordion List */}
         <div className="space-y-3.5">
-          {faqs.map((faq) => {
+          {(faqs || []).map((faq) => {
             const isOpen = !!openIds[faq.id];
             return (
               <div

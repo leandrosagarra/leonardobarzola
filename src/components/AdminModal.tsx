@@ -393,7 +393,7 @@ export function AdminModal({
                   </div>
 
                   <div className="space-y-5">
-                    {formData.services.map((srv, idx) => (
+                    {(formData?.services || []).map((srv, idx) => (
                       <div
                         key={srv.id}
                         className="p-4 bg-white rounded-xl border border-[#DFCEBB] shadow-2xs space-y-3"
@@ -492,7 +492,7 @@ export function AdminModal({
                   </div>
 
                   <div className="space-y-4">
-                    {formData.faqs.map((faq, idx) => (
+                    {(formData?.faqs || []).map((faq, idx) => (
                       <div
                         key={faq.id}
                         className="p-4 bg-white rounded-xl border border-[#DFCEBB] shadow-2xs space-y-3"
@@ -598,13 +598,13 @@ export function AdminModal({
                         Los 4 pilares de atención
                       </h4>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        {formData.institutionalPillars.map((pillar, idx) => (
+                        {(formData?.institutionalPillars || []).map((pillar, idx) => (
                           <div key={pillar.id} className="p-3.5 bg-white rounded-lg border border-[#D5C6B3] space-y-2">
                             <input
                               type="text"
                               value={pillar.title}
                               onChange={(e) => {
-                                const newPillars = [...formData.institutionalPillars];
+                                const newPillars = [...(formData?.institutionalPillars || [])];
                                 newPillars[idx].title = e.target.value;
                                 setFormData({ ...formData, institutionalPillars: newPillars });
                               }}
@@ -614,7 +614,7 @@ export function AdminModal({
                               rows={2}
                               value={pillar.description}
                               onChange={(e) => {
-                                const newPillars = [...formData.institutionalPillars];
+                                const newPillars = [...(formData?.institutionalPillars || [])];
                                 newPillars[idx].description = e.target.value;
                                 setFormData({ ...formData, institutionalPillars: newPillars });
                               }}
@@ -641,7 +641,7 @@ export function AdminModal({
                   </div>
 
                   <div className="space-y-3">
-                    {formData.customFacts.map((fact, idx) => (
+                    {(formData?.customFacts || []).map((fact, idx) => (
                       <div key={idx} className="flex items-center gap-2">
                         <input
                           type="text"

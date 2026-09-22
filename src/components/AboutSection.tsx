@@ -41,7 +41,7 @@ export function AboutSection({ title, subtitle, pillars }: AboutSectionProps) {
 
         {/* 4 Core Pillars Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-          {pillars.map((pillar) => (
+          {(pillars || []).map((pillar) => (
             <div
               key={pillar.id}
               className="bg-white/80 p-6 sm:p-7 rounded-xl border border-[#E5DBCC] shadow-xs flex flex-col justify-between hover:border-[#CFBFA9] transition-colors"

@@ -8,8 +8,12 @@ interface FooterProps {
 
 export function Footer({ contact, onOpenAdmin }: FooterProps) {
   const currentYear = new Date().getFullYear();
-  const cleanPhone = contact.phone.replace(/[^0-9]/g, '');
-  const cleanWhatsapp = contact.whatsappNumber.replace(/[^0-9]/g, '');
+  const phone = contact?.phone || '0221 618-6574';
+  const whatsappNumber = contact?.whatsappNumber || '0221 618-6574';
+  const address = contact?.address || 'Calle 48 entre 12 y 13';
+  const city = contact?.city || 'La Plata, Buenos Aires';
+  const cleanPhone = phone.replace(/[^0-9]/g, '');
+  const cleanWhatsapp = whatsappNumber.replace(/[^0-9]/g, '');
 
   return (
     <footer className="bg-[#2D231E] text-[#EFE7DC] border-t border-[#44352D] pt-14 pb-10">
@@ -79,12 +83,12 @@ export function Footer({ contact, onOpenAdmin }: FooterProps) {
             <div className="space-y-2 text-sm text-[#D8C9BB]">
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-[#C5A059]" />
-                <span>{contact.address}, {contact.city}</span>
+                <span>{address}, {city}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-[#C5A059]" />
                 <a href={`tel:${cleanPhone}`} className="hover:underline">
-                  {contact.phone}
+                  {phone}
                 </a>
               </div>
               <div className="flex items-center gap-2">

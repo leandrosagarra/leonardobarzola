@@ -69,7 +69,7 @@ export function Hero({ schedule, onOpenChat }: HeroProps) {
             <div className="p-1.5 rounded-md bg-[#EFE8DC] text-[#984E37]">
               <Clock className="w-4 h-4" />
             </div>
-            <span className="font-medium">Lunes a jueves {schedule.weekdays} · Viernes {schedule.friday}</span>
+            <span className="font-medium">Lunes a jueves {schedule?.weekdays || '9:00 a 16:00'} · Viernes {schedule?.friday || '9:00 a 14:30'}</span>
           </div>
         </div>
       </div>

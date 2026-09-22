@@ -156,8 +156,10 @@ export function Chatbot({
     ]);
   };
 
-  const cleanPhone = siteData.contact.phone.replace(/[^0-9]/g, '');
-  const cleanWhatsapp = siteData.contact.whatsappNumber.replace(/[^0-9]/g, '');
+  const phone = siteData?.contact?.phone || '0221 618-6574';
+  const whatsappNumber = siteData?.contact?.whatsappNumber || '0221 618-6574';
+  const cleanPhone = phone.replace(/[^0-9]/g, '');
+  const cleanWhatsapp = whatsappNumber.replace(/[^0-9]/g, '');
 
   return (
     <>
