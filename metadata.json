@@ -1,0 +1,6 @@
+{
+  "name": "Escribanía Barzola",
+  "description": "Servicios notariales en La Plata con atención personalizada, cercana y profesional. Escrituras, certificaciones de firmas, poderes, actas, sucesiones y asesoramiento.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
