@@ -129,8 +129,33 @@ export function Chatbot({
       setMessages((prev) => [...prev, botMessage]);
     } catch (err) {
       console.warn('Usando respuesta de contingencia:', err);
-      // Client-side fallback if server fails
-      const fallbackReply = 'Ese caso requiere una consulta particular con la escribanía. Podés comunicarte directamente para recibir asesoramiento.';
+      // Smart client-side fallback
+      const qLower = query.toLowerCase();
+      let fallbackReply = 'Ese caso requiere una consulta particular con la escribanía. Podés comunicarte directamente para recibir asesoramiento.';
+      let needsContact = true;
+
+      if (qLower.includes('horario') || qLower.includes('hora') || qLower.includes('atienden') || qLower.includes('abren') || qLower.includes('viernes') || qLower.includes('sábado') || qLower.includes('domingo')) {
+        if (qLower.includes('sábado') || qLower.includes('sabado') || qLower.includes('domingo')) {
+          fallbackReply = 'La escribanía permanece cerrada los sábados y domingos. Atendemos de lunes a jueves de 9:00 a 16:00 y los viernes de 9:00 a 14:30.';
+          needsContact = false;
+        } else {
+          fallbackReply = `Nuestros horarios de atención son: de lunes a jueves de ${siteData?.schedule?.weekdays || '9:00 a 16:00'} y los viernes de ${siteData?.schedule?.friday || '9:00 a 14:30'}. Sábados y domingos: cerrado.`;
+          needsContact = false;
+        }
+      } else if (qLower.includes('dónde') || qLower.includes('donde') || qLower.includes('queda') || qLower.includes('dirección') || qLower.includes('direccion') || qLower.includes('ubicación') || qLower.includes('calle')) {
+        fallbackReply = `Estamos ubicados en ${siteData?.contact?.address || 'Calle 48 nº 874, primer piso oficina 24'}, ${siteData?.contact?.city || 'La Plata, Buenos Aires'}.`;
+        needsContact = false;
+      } else if (qLower.includes('teléfono') || qLower.includes('telefono') || qLower.includes('celular') || qLower.includes('whatsapp') || qLower.includes('contacto')) {
+        fallbackReply = `Podés comunicarte directamente al teléfono ${siteData?.contact?.phone || '0221 618-6574'} o por WhatsApp al mismo número.`;
+        needsContact = true;
+      } else if (qLower.includes('turno') || qLower.includes('cita')) {
+        fallbackReply = 'No es necesario solicitar turno previo. La atención se brinda presencialmente por orden de llegada en horario de oficina.';
+        needsContact = false;
+      } else if (qLower.includes('certific') || qLower.includes('firma')) {
+        fallbackReply = 'Para certificar firmas debés presentarte personalmente ante el escribano con tu documento nacional de identidad (DNI) vigente.';
+        needsContact = false;
+      }
+
       setMessages((prev) => [
         ...prev,
         {
@@ -138,7 +163,7 @@ export function Chatbot({
           role: 'assistant',
           text: fallbackReply,
           timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-          requiresContact: true,
+          requiresContact: needsContact,
         },
       ]);
     } finally {
