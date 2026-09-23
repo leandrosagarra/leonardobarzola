@@ -61,11 +61,6 @@ export function Footer({ contact, onOpenAdmin }: FooterProps) {
                 </a>
               </li>
               <li>
-                <a href="#faq" className="hover:text-white transition-colors">
-                  Preguntas frecuentes
-                </a>
-              </li>
-              <li>
                 <a href="#contacto" className="hover:text-white transition-colors">
                   Ubicación y contacto
                 </a>

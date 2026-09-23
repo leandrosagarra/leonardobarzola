@@ -15,7 +15,7 @@ import {
   Brain,
   Shield,
 } from 'lucide-react';
-import { NotarySiteData, ServiceItem, FaqItem } from '../types';
+import { NotarySiteData, ServiceItem } from '../types';
 
 interface AdminModalProps {
   isOpen: boolean;
@@ -37,7 +37,7 @@ export function AdminModal({
   const [pinInput, setPinInput] = useState('');
   const [pinError, setPinError] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [activeTab, setActiveTab] = useState<'contact' | 'services' | 'faqs' | 'institution' | 'chatbot'>('contact');
+  const [activeTab, setActiveTab] = useState<'contact' | 'services' | 'institution' | 'chatbot'>('contact');
 
   // Working copy of data
   const [formData, setFormData] = useState<NotarySiteData>(siteData);
@@ -193,18 +193,6 @@ export function AdminModal({
               >
                 <FileText className="w-4 h-4 text-[#9A4E38]" />
                 <span>Servicios</span>
-              </button>
-
-              <button
-                onClick={() => setActiveTab('faqs')}
-                className={`flex items-center gap-2 px-3.5 py-2.5 text-xs sm:text-sm font-semibold rounded-t-lg transition-colors border-t border-x ${
-                  activeTab === 'faqs'
-                    ? 'bg-[#FCFBF9] text-[#29201B] border-[#D9CCBA] border-b-transparent -mb-px'
-                    : 'text-[#6D5A4D] hover:text-[#29201B] border-transparent'
-                }`}
-              >
-                <HelpCircle className="w-4 h-4 text-[#9A4E38]" />
-                <span>Preguntas Frecuentes</span>
               </button>
 
               <button
@@ -451,99 +439,6 @@ export function AdminModal({
                               setFormData({ ...formData, services: newServices });
                             }}
                             className="w-full text-sm py-2 px-3 bg-[#FAF8F5] rounded-md border border-[#D5C6B3]"
-                          />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* TAB: FAQS */}
-              {activeTab === 'faqs' && (
-                <div className="space-y-6">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h3 className="font-serif-title text-lg font-semibold text-[#29201B] mb-1">
-                        Preguntas frecuentes
-                      </h3>
-                      <p className="text-xs text-[#6F5D51]">
-                        Consultas habituales de los clientes. Se reflejan en el acordeón y en el chatbot.
-                      </p>
-                    </div>
-
-                    <button
-                      onClick={() => {
-                        const newFaq: FaqItem = {
-                          id: `faq-${Date.now()}`,
-                          question: 'Nueva pregunta frecuente',
-                          answer: 'Respuesta correspondiente...',
-                        };
-                        setFormData({
-                          ...formData,
-                          faqs: [...formData.faqs, newFaq],
-                        });
-                      }}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#EFE7DC] hover:bg-[#E4DCCE] text-xs font-semibold text-[#3D2F27] border border-[#D4C5B3]"
-                    >
-                      <Plus className="w-3.5 h-3.5 text-[#9A4E38]" />
-                      <span>Agregar pregunta</span>
-                    </button>
-                  </div>
-
-                  <div className="space-y-4">
-                    {(formData?.faqs || []).map((faq, idx) => (
-                      <div
-                        key={faq.id}
-                        className="p-4 bg-white rounded-xl border border-[#DFCEBB] shadow-2xs space-y-3"
-                      >
-                        <div className="flex items-center justify-between">
-                          <span className="text-xs font-semibold uppercase tracking-wider text-[#9A4E38]">
-                            Pregunta #{idx + 1}
-                          </span>
-                          <button
-                            onClick={() => {
-                              setFormData({
-                                ...formData,
-                                faqs: formData.faqs.filter((f) => f.id !== faq.id),
-                              });
-                            }}
-                            className="text-xs text-[#B93826] hover:text-[#8E2819] flex items-center gap-1"
-                          >
-                            <Trash2 className="w-3.5 h-3.5" />
-                            <span>Eliminar</span>
-                          </button>
-                        </div>
-
-                        <div>
-                          <label className="block text-xs font-medium text-[#655246] mb-1">
-                            Pregunta
-                          </label>
-                          <input
-                            type="text"
-                            value={faq.question}
-                            onChange={(e) => {
-                              const newFaqs = [...formData.faqs];
-                              newFaqs[idx].question = e.target.value;
-                              setFormData({ ...formData, faqs: newFaqs });
-                            }}
-                            className="w-full text-sm py-1.5 px-3 bg-[#FAF8F5] rounded-md border border-[#D5C6B3]"
-                          />
-                        </div>
-
-                        <div>
-                          <label className="block text-xs font-medium text-[#655246] mb-1">
-                            Respuesta
-                          </label>
-                          <textarea
-                            rows={2}
-                            value={faq.answer}
-                            onChange={(e) => {
-                              const newFaqs = [...formData.faqs];
-                              newFaqs[idx].answer = e.target.value;
-                              setFormData({ ...formData, faqs: newFaqs });
-                            }}
-                            className="w-full text-sm py-1.5 px-3 bg-[#FAF8F5] rounded-md border border-[#D5C6B3]"
                           />
                         </div>
                       </div>

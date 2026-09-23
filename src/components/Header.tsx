@@ -17,7 +17,6 @@ export function Header({ contact, onOpenAdmin, onOpenChat }: HeaderProps) {
     { label: 'Inicio', href: '#inicio' },
     { label: 'Servicios', href: '#servicios' },
     { label: 'La Escribanía', href: '#la-escribania' },
-    { label: 'Preguntas frecuentes', href: '#faq' },
     { label: 'Contacto', href: '#contacto' },
   ];
 

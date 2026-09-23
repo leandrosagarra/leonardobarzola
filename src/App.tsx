@@ -11,7 +11,6 @@ import { Hero } from './components/Hero';
 import { ServicesSection } from './components/ServicesSection';
 import { UsefulInfoSection } from './components/UsefulInfoSection';
 import { AboutSection } from './components/AboutSection';
-import { FaqSection } from './components/FaqSection';
 import { ContactSection } from './components/ContactSection';
 import { Chatbot } from './components/Chatbot';
 import { AdminModal } from './components/AdminModal';
@@ -157,13 +156,7 @@ export default function App() {
             pillars={siteData.institutionalPillars}
           />
 
-          {/* 5. Preguntas Frecuentes */}
-          <FaqSection
-            faqs={siteData.faqs}
-            onOpenChat={handleOpenChat}
-          />
-
-          {/* 6. Ubicación y Contacto */}
+          {/* 5. Ubicación y Contacto */}
           <ContactSection
             contact={siteData.contact}
             schedule={siteData.schedule}
