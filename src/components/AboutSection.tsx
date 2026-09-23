@@ -60,16 +60,6 @@ export function AboutSection({ title, subtitle, pillars }: AboutSectionProps) {
             </div>
           ))}
         </div>
-
-        {/* Warm quote banner */}
-        <div className="mt-14 max-w-4xl mx-auto rounded-2xl bg-gradient-to-r from-[#F3ECE1] to-[#EAE0D1] p-6 sm:p-8 border border-[#DACCC0] text-center">
-          <p className="font-serif-title text-lg sm:text-xl text-[#352821] italic leading-relaxed">
-            «La función notarial no es solo un acto formal: es brindar certeza, tranquilidad y confianza a cada familia y empresa que confía en nosotros.»
-          </p>
-          <div className="mt-3 text-xs tracking-wider uppercase font-semibold text-[#8B7465]">
-            Escribanía Barzola · La Plata, Buenos Aires
-          </div>
-        </div>
       </div>
     </section>
   );

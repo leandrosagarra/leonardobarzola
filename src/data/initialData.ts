@@ -2,7 +2,7 @@ import { NotarySiteData } from '../types';
 
 export const INITIAL_NOTARY_DATA: NotarySiteData = {
   contact: {
-    address: 'Calle 48 entre 12 y 13, La Plata',
+    address: 'Calle 48 nº 874, primer piso oficina 24',
     phone: '0221 618-6574',
     whatsappNumber: '5492216186574',
     city: 'La Plata, Buenos Aires',
@@ -192,7 +192,7 @@ export const INITIAL_NOTARY_DATA: NotarySiteData = {
     },
   ],
   customFacts: [
-    'Ubicación exacta: Calle 48 entre 12 y 13, ciudad de La Plata.',
+    'Ubicación exacta: Calle 48 nº 874, primer piso oficina 24, La Plata (entre calles 12 y 13).',
     'Horario: Lunes a jueves de 9:00 a 16:00. Viernes de 9:00 a 14:30. Sábados, domingos y feriados: cerrado.',
     'Teléfono y WhatsApp directo: 0221 618-6574.',
     'No hay turnero ni reserva online: la atención se brinda de manera directa.',

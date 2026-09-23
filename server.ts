@@ -53,7 +53,7 @@ function generateFallbackResponse(userMessage: string, knowledge: any): { reply:
   // Location / Address
   if (text.includes("dónde") || text.includes("donde") || text.includes("queda") || text.includes("dirección") || text.includes("direccion") || text.includes("ubicación") || text.includes("ubicacion") || text.includes("calle")) {
     return {
-      reply: `Estamos ubicados en ${knowledge?.contact?.address || "Calle 48 entre 12 y 13, La Plata, Buenos Aires"}. Podés ver el mapa interactivo en la sección de contacto o pulsar 'Cómo llegar'.`,
+      reply: `Estamos ubicados en ${knowledge?.contact?.address || "Calle 48 nº 874, primer piso oficina 24, La Plata, Buenos Aires"}. Podés ver el mapa interactivo en la sección de contacto o pulsar 'Cómo llegar'.`,
       requiresContact: false
     };
   }
@@ -166,7 +166,7 @@ async function startServer() {
 INFORMACIÓN OFICIAL DE ESCRIBANÍA BARZOLA:
 - Nombre: Escribanía Barzola
 - Subtítulo: Servicios notariales · La Plata
-- Ubicación / Dirección: ${knowledge?.contact?.address || "Calle 48 entre 12 y 13, La Plata, Provincia de Buenos Aires, Argentina"}
+- Ubicación / Dirección: ${knowledge?.contact?.address || "Calle 48 nº 874, primer piso oficina 24, La Plata, Provincia de Buenos Aires, Argentina"}
 - Teléfono: ${knowledge?.contact?.phone || "0221 618-6574"}
 - WhatsApp: ${knowledge?.contact?.phone || "0221 618-6574"}
 - Horarios de atención:

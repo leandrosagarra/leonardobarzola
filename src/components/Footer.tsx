@@ -10,7 +10,7 @@ export function Footer({ contact, onOpenAdmin }: FooterProps) {
   const currentYear = new Date().getFullYear();
   const phone = contact?.phone || '0221 618-6574';
   const whatsappNumber = contact?.whatsappNumber || '0221 618-6574';
-  const address = contact?.address || 'Calle 48 entre 12 y 13';
+  const address = contact?.address || 'Calle 48 nº 874, primer piso oficina 24';
   const city = contact?.city || 'La Plata, Buenos Aires';
   const cleanPhone = phone.replace(/[^0-9]/g, '');
   const cleanWhatsapp = whatsappNumber.replace(/[^0-9]/g, '');

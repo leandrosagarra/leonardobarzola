@@ -30,6 +30,9 @@ function sanitizeSiteData(raw: any): NotarySiteData {
     contact: {
       ...INITIAL_NOTARY_DATA.contact,
       ...(raw.contact || {}),
+      address: (!raw.contact?.address || raw.contact.address.includes('entre 12 y 13'))
+        ? INITIAL_NOTARY_DATA.contact.address
+        : raw.contact.address,
     },
     schedule: {
       ...INITIAL_NOTARY_DATA.schedule,

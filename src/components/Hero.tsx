@@ -60,7 +60,7 @@ export function Hero({ schedule, onOpenChat }: HeroProps) {
             <div className="p-1.5 rounded-md bg-[#EFE8DC] text-[#984E37]">
               <MapPin className="w-4 h-4" />
             </div>
-            <span className="font-medium">Calle 48 entre 12 y 13, La Plata</span>
+            <span className="font-medium">Calle 48 nº 874, primer piso of. 24, La Plata</span>
           </div>
 
           <div className="hidden sm:block w-1.5 h-1.5 rounded-full bg-[#D6C5B3]" />

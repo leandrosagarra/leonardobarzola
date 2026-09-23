@@ -7,7 +7,7 @@ interface ContactSectionProps {
 }
 
 export function ContactSection({ contact, schedule }: ContactSectionProps) {
-  const address = contact?.address || 'Calle 48 entre 12 y 13';
+  const address = contact?.address || 'Calle 48 nº 874, primer piso oficina 24';
   const city = contact?.city || 'La Plata, Buenos Aires';
   const phone = contact?.phone || '0221 618-6574';
   const whatsappNumber = contact?.whatsappNumber || '0221 618-6574';
@@ -18,7 +18,7 @@ export function ContactSection({ contact, schedule }: ContactSectionProps) {
   const cleanPhone = phone.replace(/[^0-9]/g, '');
   const cleanWhatsapp = whatsappNumber.replace(/[^0-9]/g, '');
   const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-    'Calle 48 entre 12 y 13, La Plata, Buenos Aires'
+    'Calle 48 nº 874, La Plata, Buenos Aires'
   )}`;
 
   return (
@@ -158,7 +158,7 @@ export function ContactSection({ contact, schedule }: ContactSectionProps) {
             <div className="p-4 bg-[#FAF7F2] border-b border-[#ECE2D4] flex items-center justify-between">
               <div className="flex items-center gap-2 text-xs font-semibold text-[#5A483E]">
                 <MapPin className="w-4 h-4 text-[#9A4E38]" />
-                <span>Calle 48 entre 12 y 13, La Plata, Buenos Aires</span>
+                <span>{address}, {city}</span>
               </div>
               <a
                 href={googleMapsUrl}
