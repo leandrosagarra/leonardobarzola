@@ -15,9 +15,7 @@ export function ContactSection({ contact, schedule }: ContactSectionProps) {
   const weekend = schedule?.weekend || 'Cerrado';
 
   const cleanPhone = phone.replace(/[^0-9]/g, '');
-  const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-    'Calle 48 nº 874, La Plata, Buenos Aires'
-  )}`;
+  const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=-34.91888,-57.95670`;
 
   return (
     <section id="contacto" className="py-16 sm:py-24 bg-[#FBF9F5] border-t border-[#ECE3D5]">
@@ -161,7 +159,7 @@ export function ContactSection({ contact, schedule }: ContactSectionProps) {
             <div className="relative w-full h-80 sm:h-96 lg:h-full min-h-[350px]">
               <iframe
                 title="Ubicación de Escribanía Barzola en La Plata"
-                src="https://www.openstreetmap.org/export/embed.html?bbox=-57.9575%2C-34.9205%2C-57.9515%2C-34.9175&amp;layer=mapnik&amp;marker=-34.9189%2C-57.9547"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=-57.9602%2C-34.9212%2C-57.9532%2C-34.9165&amp;layer=mapnik&amp;marker=-34.91888%2C-57.95670"
                 className="w-full h-full border-0"
                 loading="lazy"
               />
