@@ -177,11 +177,10 @@ INFORMACIÓN OFICIAL DE ESCRIBANÍA BARZOLA:
 - Servicios notariales que brinda:
   1. Escrituras: Compraventas inmobiliarias, donaciones, permutas y constitución de hipotecas.
   2. Certificación de firmas: Autenticación de firmas en documentos privados para otorgarles validez legal.
-  3. Poderes notariales: Redacción y formalización de poderes generales o especiales.
-  4. Actas notariales: Constatación de hechos, declaraciones y certificaciones de contenido.
-  5. Legalizaciones y apostillas: Gestiones necesarias para documentación que deba tener validez en Argentina o en el extranjero (Apostilla de La Haya).
-  6. Autorización de libros: Trámites correspondientes a sociedades comerciales y entidades civiles.
-  7. Testamentos y sucesiones: Asesoramiento y formalización de trámites vinculados con testamentos y procesos sucesorios.
+  3. Poderes y Actas notariales: Redacción y formalización de poderes generales o especiales, y confección de actas de constatación de hechos y certificaciones con fe pública.
+  4. Legalizaciones y apostillas: Gestiones necesarias para documentación que deba tener validez en Argentina o en el extranjero (Apostilla de La Haya).
+  5. Autorización de libros: Trámites correspondientes a sociedades comerciales y entidades civiles.
+  6. Testamentos y sucesiones: Asesoramiento y formalización de trámites vinculados con testamentos y procesos sucesorios.
 - Documentación habitual previa a un trámite: DNI vigente, constancia de CUIT/CUIL, comprobante de domicilio y títulos o antecedentes pertinentes.
 - Datos adicionales cargados por la escribanía:
   ${knowledge?.customFacts ? knowledge.customFacts.join("\n") : "Atención personalizada y asesoramiento responsable en La Plata."}

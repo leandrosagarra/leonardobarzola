@@ -1,4 +1,4 @@
-import { Lock, Phone, MessageCircle, MapPin } from 'lucide-react';
+import { Lock, Phone, MapPin } from 'lucide-react';
 import { ContactInfo } from '../types';
 
 interface FooterProps {
@@ -9,11 +9,9 @@ interface FooterProps {
 export function Footer({ contact, onOpenAdmin }: FooterProps) {
   const currentYear = new Date().getFullYear();
   const phone = contact?.phone || '0221 618-6574';
-  const whatsappNumber = contact?.whatsappNumber || '0221 618-6574';
   const address = contact?.address || 'Calle 48 nº 874, primer piso oficina 24';
   const city = contact?.city || 'La Plata, Buenos Aires';
   const cleanPhone = phone.replace(/[^0-9]/g, '');
-  const cleanWhatsapp = whatsappNumber.replace(/[^0-9]/g, '');
 
   return (
     <footer className="bg-[#2D231E] text-[#EFE7DC] border-t border-[#44352D] pt-14 pb-10">
@@ -89,17 +87,6 @@ export function Footer({ contact, onOpenAdmin }: FooterProps) {
                 <Phone className="w-4 h-4 text-[#C5A059]" />
                 <a href={`tel:${cleanPhone}`} className="hover:underline">
                   {phone}
-                </a>
-              </div>
-              <div className="flex items-center gap-2">
-                <MessageCircle className="w-4 h-4 text-[#3FA86E]" />
-                <a
-                  href={`https://wa.me/${cleanWhatsapp}?text=Hola,%20quisiera%20hacer%20una%20consulta%20a%20Escriban%C3%ADa%20Barzola`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:underline"
-                >
-                  WhatsApp disponible
                 </a>
               </div>
             </div>

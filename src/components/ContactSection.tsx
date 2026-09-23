@@ -1,4 +1,4 @@
-import { MapPin, Phone, MessageCircle, Navigation, Clock, CheckCircle } from 'lucide-react';
+import { MapPin, Phone, Navigation, Clock, CheckCircle } from 'lucide-react';
 import { ContactInfo, ScheduleInfo } from '../types';
 
 interface ContactSectionProps {
@@ -10,13 +10,11 @@ export function ContactSection({ contact, schedule }: ContactSectionProps) {
   const address = contact?.address || 'Calle 48 nº 874, primer piso oficina 24';
   const city = contact?.city || 'La Plata, Buenos Aires';
   const phone = contact?.phone || '0221 618-6574';
-  const whatsappNumber = contact?.whatsappNumber || '0221 618-6574';
   const weekdays = schedule?.weekdays || '9:00 a 16:00';
   const friday = schedule?.friday || '9:00 a 14:30';
   const weekend = schedule?.weekend || 'Cerrado';
 
   const cleanPhone = phone.replace(/[^0-9]/g, '');
-  const cleanWhatsapp = whatsappNumber.replace(/[^0-9]/g, '');
   const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
     'Calle 48 nº 874, La Plata, Buenos Aires'
   )}`;
@@ -122,7 +120,7 @@ export function ContactSection({ contact, schedule }: ContactSectionProps) {
             </div>
 
             {/* Direct Action Buttons */}
-            <div className="mt-8 pt-6 border-t border-[#EFE7DC] grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div className="mt-8 pt-6 border-t border-[#EFE7DC] grid grid-cols-1 sm:grid-cols-2 gap-3">
               <a
                 href={googleMapsUrl}
                 target="_blank"
@@ -138,17 +136,7 @@ export function ContactSection({ contact, schedule }: ContactSectionProps) {
                 className="flex items-center justify-center gap-2 py-3 px-3 rounded-lg bg-[#EFE8DD] hover:bg-[#E4DCCE] text-[#342721] border border-[#D8CCBA] text-xs font-semibold transition-all shadow-xs"
               >
                 <Phone className="w-4 h-4 text-[#9A4E38]" />
-                <span>Llamar</span>
-              </a>
-
-              <a
-                href={`https://wa.me/${cleanWhatsapp}?text=Hola,%20quisiera%20hacer%20una%20consulta%20a%20Escriban%C3%ADa%20Barzola`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 py-3 px-3 rounded-lg bg-[#2B5E3F] hover:bg-[#224A32] text-white text-xs font-semibold transition-all shadow-xs"
-              >
-                <MessageCircle className="w-4 h-4" />
-                <span>WhatsApp</span>
+                <span>Llamar a la escribanía</span>
               </a>
             </div>
           </div>

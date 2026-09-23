@@ -68,30 +68,19 @@ export const INITIAL_NOTARY_DATA: NotarySiteData = {
       icon: 'PenTool',
     },
     {
-      id: 'poderes',
-      title: 'Poderes notariales',
-      shortDesc: 'Redacción y formalización de poderes generales o especiales.',
+      id: 'poderes-actas',
+      title: 'Poderes y Actas notariales',
+      shortDesc: 'Redacción y formalización de poderes, constataciones de hechos y certificaciones con fe pública.',
       fullDetails:
-        'Otorgamiento de facultades de representación legal mediante escritura pública: poderes especiales para trámites bancarios, administrativos o ante ANSES/AFIP/ARBA; poderes para disposición de bienes determinados o poderes generales para juicios y administración de patrimonios.',
+        'Otorgamiento de facultades de representación legal mediante escritura pública (poderes especiales para trámites bancarios, administrativos o disposición, y poderes generales para juicios) y confección de actas notariales para constatar hechos, notificaciones fehacientes, declaraciones juradas o verificación de contenido digital.',
       requirements: [
-        'DNI original del otorgante',
-        'Nombres completos, DNI, CUIT y domicilio del apoderado',
-        'En poderes de disposición sobre bienes: título antecedente o datos registrales'
-      ],
-      icon: 'ShieldCheck',
-    },
-    {
-      id: 'actas',
-      title: 'Actas notariales',
-      shortDesc: 'Constatación de hechos, declaraciones y certificaciones de contenido.',
-      fullDetails:
-        'Documento público por el cual el escribano hace constar bajo fe pública hechos presenciados, estado de cosas, notificaciones formales, declaraciones juradas, intimaciones o verificación fehaciente de contenido digital (mensajes, páginas web, correos electrónicos).',
-      requirements: [
-        'DNI del requirente',
-        'Motivo y objeto de la constatación',
+        'DNI original y vigente del otorgante o requirente',
+        'Nombres completos, DNI, CUIT y domicilio del apoderado (en poderes)',
+        'Motivo y objeto de la representación o de la constatación notarial',
+        'En poderes de disposición sobre bienes: título antecedente o datos registrales',
         'Coordinación previa para constataciones fuera de sede notarial'
       ],
-      icon: 'Scroll',
+      icon: 'ShieldCheck',
     },
     {
       id: 'apostillas',

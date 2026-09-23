@@ -45,9 +45,18 @@ function sanitizeSiteData(raw: any): NotarySiteData {
     institutionalPillars: Array.isArray(raw.institutionalPillars) && raw.institutionalPillars.length > 0
       ? raw.institutionalPillars
       : INITIAL_NOTARY_DATA.institutionalPillars,
-    services: Array.isArray(raw.services) && raw.services.length > 0
-      ? raw.services
-      : INITIAL_NOTARY_DATA.services,
+    services: (() => {
+      if (!Array.isArray(raw.services) || raw.services.length === 0) {
+        return INITIAL_NOTARY_DATA.services;
+      }
+      const hasOldSplit = raw.services.some(
+        (s: any) => s.id === 'poderes' || s.id === 'actas' || s.title === 'Poderes notariales' || s.title === 'Actas notariales'
+      );
+      if (hasOldSplit) {
+        return INITIAL_NOTARY_DATA.services;
+      }
+      return raw.services;
+    })(),
     faqs: Array.isArray(raw.faqs) && raw.faqs.length > 0
       ? raw.faqs
       : INITIAL_NOTARY_DATA.faqs,
