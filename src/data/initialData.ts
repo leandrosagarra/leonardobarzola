@@ -3,7 +3,7 @@ import { NotarySiteData } from '../types';
 export const INITIAL_NOTARY_DATA: NotarySiteData = {
   contact: {
     address: 'Calle 48 nº 874, primer piso oficina 24',
-    phone: '0221 618-6574',
+    phone: '221 618-6574',
     whatsappNumber: '5492216186574',
     email: 'escribaniabarzola@gmail.com',
     city: 'La Plata, Buenos Aires',
@@ -184,7 +184,7 @@ export const INITIAL_NOTARY_DATA: NotarySiteData = {
   customFacts: [
     'Ubicación exacta: Calle 48 nº 874, primer piso oficina 24, La Plata (entre calles 12 y 13).',
     'Horario: Lunes a jueves de 9:00 a 16:00. Viernes de 9:00 a 14:30. Sábados, domingos y feriados: cerrado.',
-    'Teléfono y WhatsApp directo: 0221 618-6574.',
+    'Teléfono y WhatsApp directo: 221 618-6574.',
     'No hay turnero ni reserva online: la atención se brinda de manera directa.',
     'Los trámites de certificación de firmas requieren concurrir en persona con DNI vigente ante el escribano.',
   ],

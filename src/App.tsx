@@ -29,6 +29,9 @@ function sanitizeSiteData(raw: any): NotarySiteData {
     contact: {
       ...INITIAL_NOTARY_DATA.contact,
       ...(raw.contact || {}),
+      phone: (!raw.contact?.phone || raw.contact.phone === '0221 618-6574')
+        ? INITIAL_NOTARY_DATA.contact.phone
+        : (raw.contact.phone.startsWith('0221') ? raw.contact.phone.replace(/^0221/, '221') : raw.contact.phone),
       email: raw.contact?.email || INITIAL_NOTARY_DATA.contact.email,
       address: (!raw.contact?.address || raw.contact.address.includes('entre 12 y 13'))
         ? INITIAL_NOTARY_DATA.contact.address

@@ -147,7 +147,7 @@ export function Chatbot({
         fallbackReply = `Estamos ubicados en ${siteData?.contact?.address || 'Calle 48 nº 874, primer piso oficina 24'}, ${siteData?.contact?.city || 'La Plata, Buenos Aires'}.`;
         needsContact = false;
       } else if (qLower.includes('teléfono') || qLower.includes('telefono') || qLower.includes('celular') || qLower.includes('whatsapp') || qLower.includes('contacto') || qLower.includes('correo') || qLower.includes('email') || qLower.includes('mail')) {
-        fallbackReply = `Podés comunicarte directamente al teléfono ${siteData?.contact?.phone || '0221 618-6574'} o por correo electrónico a ${siteData?.contact?.email || 'escribaniabarzola@gmail.com'}.`;
+        fallbackReply = `Podés comunicarte directamente al teléfono ${siteData?.contact?.phone || '221 618-6574'} o por correo electrónico a ${siteData?.contact?.email || 'escribaniabarzola@gmail.com'}.`;
         needsContact = true;
       } else if (qLower.includes('turno') || qLower.includes('cita')) {
         fallbackReply = 'No es necesario solicitar turno previo. La atención se brinda presencialmente por orden de llegada en horario de oficina.';
@@ -182,9 +182,9 @@ export function Chatbot({
     ]);
   };
 
-  const phone = siteData?.contact?.phone || '0221 618-6574';
+  const phone = siteData?.contact?.phone || '221 618-6574';
   const email = siteData?.contact?.email || 'escribaniabarzola@gmail.com';
-  const whatsappNumber = siteData?.contact?.whatsappNumber || '0221 618-6574';
+  const whatsappNumber = siteData?.contact?.whatsappNumber || '221 618-6574';
   const cleanPhone = phone.replace(/[^0-9]/g, '');
   const cleanWhatsapp = whatsappNumber.replace(/[^0-9]/g, '');
 

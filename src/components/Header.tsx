@@ -10,7 +10,7 @@ interface HeaderProps {
 
 export function Header({ contact, onOpenAdmin, onOpenChat }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const phone = contact?.phone || '0221 618-6574';
+  const phone = contact?.phone || '221 618-6574';
   const email = contact?.email || 'escribaniabarzola@gmail.com';
   const cleanPhone = phone.replace(/[^0-9]/g, '');
 

@@ -8,7 +8,7 @@ interface FooterProps {
 
 export function Footer({ contact, onOpenAdmin }: FooterProps) {
   const currentYear = new Date().getFullYear();
-  const phone = contact?.phone || '0221 618-6574';
+  const phone = contact?.phone || '221 618-6574';
   const email = contact?.email || 'escribaniabarzola@gmail.com';
   const address = contact?.address || 'Calle 48 nº 874, primer piso oficina 24';
   const city = contact?.city || 'La Plata, Buenos Aires';

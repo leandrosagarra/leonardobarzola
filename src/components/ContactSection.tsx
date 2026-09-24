@@ -9,7 +9,7 @@ interface ContactSectionProps {
 export function ContactSection({ contact, schedule }: ContactSectionProps) {
   const address = contact?.address || 'Calle 48 nº 874, primer piso oficina 24';
   const city = contact?.city || 'La Plata, Buenos Aires';
-  const phone = contact?.phone || '0221 618-6574';
+  const phone = contact?.phone || '221 618-6574';
   const email = contact?.email || 'escribaniabarzola@gmail.com';
   const weekdays = schedule?.weekdays || '9:00 a 16:00';
   const friday = schedule?.friday || '9:00 a 14:30';
