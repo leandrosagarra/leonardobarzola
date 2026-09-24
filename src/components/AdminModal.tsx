@@ -302,6 +302,24 @@ export function AdminModal({
                         className="w-full text-sm py-2 px-3 bg-white rounded-lg border border-[#D5C6B3] focus:border-[#9A4E38]"
                       />
                     </div>
+
+                    <div className="sm:col-span-2">
+                      <label className="block text-xs font-semibold uppercase text-[#735F52] mb-1">
+                        Correo electrónico
+                      </label>
+                      <input
+                        type="email"
+                        value={formData.contact.email || ''}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            contact: { ...formData.contact, email: e.target.value },
+                          })
+                        }
+                        className="w-full text-sm py-2 px-3 bg-white rounded-lg border border-[#D5C6B3] focus:border-[#9A4E38]"
+                        placeholder="ejemplo@escribaniabarzola.com"
+                      />
+                    </div>
                   </div>
 
                   <div className="pt-4 border-t border-[#EAE0D1]">

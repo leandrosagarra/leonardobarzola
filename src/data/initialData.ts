@@ -5,6 +5,7 @@ export const INITIAL_NOTARY_DATA: NotarySiteData = {
     address: 'Calle 48 nº 874, primer piso oficina 24',
     phone: '0221 618-6574',
     whatsappNumber: '5492216186574',
+    email: 'escribaniabarzola@gmail.com',
     city: 'La Plata, Buenos Aires',
     note: 'Atención presencial en horario de oficina sin necesidad de turno previo.',
   },

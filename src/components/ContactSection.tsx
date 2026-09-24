@@ -1,4 +1,4 @@
-import { MapPin, Phone, Navigation, Clock, CheckCircle } from 'lucide-react';
+import { MapPin, Phone, Mail, Navigation, Clock, CheckCircle } from 'lucide-react';
 import { ContactInfo, ScheduleInfo } from '../types';
 
 interface ContactSectionProps {
@@ -10,6 +10,7 @@ export function ContactSection({ contact, schedule }: ContactSectionProps) {
   const address = contact?.address || 'Calle 48 nº 874, primer piso oficina 24';
   const city = contact?.city || 'La Plata, Buenos Aires';
   const phone = contact?.phone || '0221 618-6574';
+  const email = contact?.email || 'escribaniabarzola@gmail.com';
   const weekdays = schedule?.weekdays || '9:00 a 16:00';
   const friday = schedule?.friday || '9:00 a 14:30';
   const weekend = schedule?.weekend || 'Cerrado';
@@ -80,6 +81,27 @@ export function ContactSection({ contact, schedule }: ContactSectionProps) {
                   </a>
                   <div className="text-xs text-[#6F5E53]">
                     Línea disponible en horario de escribanía
+                  </div>
+                </div>
+              </div>
+
+              {/* Email item */}
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-lg bg-[#F5ECE0] border border-[#E6D7C4] flex items-center justify-center shrink-0 mt-0.5 text-[#9A4E38]">
+                  <Mail className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="text-xs uppercase font-semibold text-[#8C7666] tracking-wider">
+                    Correo electrónico
+                  </div>
+                  <a
+                    href={`mailto:${email}`}
+                    className="text-base sm:text-lg font-bold text-[#2A201A] hover:text-[#9A4E38] transition-colors mt-0.5 block break-all"
+                  >
+                    {email}
+                  </a>
+                  <div className="text-xs text-[#6F5E53]">
+                    Consultas e información general
                   </div>
                 </div>
               </div>

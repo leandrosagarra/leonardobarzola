@@ -4,6 +4,7 @@ import {
   X,
   Send,
   Phone,
+  Mail,
   MessageCircle,
   RotateCcw,
   Sparkles,
@@ -145,8 +146,8 @@ export function Chatbot({
       } else if (qLower.includes('dónde') || qLower.includes('donde') || qLower.includes('queda') || qLower.includes('dirección') || qLower.includes('direccion') || qLower.includes('ubicación') || qLower.includes('calle')) {
         fallbackReply = `Estamos ubicados en ${siteData?.contact?.address || 'Calle 48 nº 874, primer piso oficina 24'}, ${siteData?.contact?.city || 'La Plata, Buenos Aires'}.`;
         needsContact = false;
-      } else if (qLower.includes('teléfono') || qLower.includes('telefono') || qLower.includes('celular') || qLower.includes('whatsapp') || qLower.includes('contacto')) {
-        fallbackReply = `Podés comunicarte directamente al teléfono ${siteData?.contact?.phone || '0221 618-6574'} o por WhatsApp al mismo número.`;
+      } else if (qLower.includes('teléfono') || qLower.includes('telefono') || qLower.includes('celular') || qLower.includes('whatsapp') || qLower.includes('contacto') || qLower.includes('correo') || qLower.includes('email') || qLower.includes('mail')) {
+        fallbackReply = `Podés comunicarte directamente al teléfono ${siteData?.contact?.phone || '0221 618-6574'} o por correo electrónico a ${siteData?.contact?.email || 'escribaniabarzola@gmail.com'}.`;
         needsContact = true;
       } else if (qLower.includes('turno') || qLower.includes('cita')) {
         fallbackReply = 'No es necesario solicitar turno previo. La atención se brinda presencialmente por orden de llegada en horario de oficina.';
@@ -182,6 +183,7 @@ export function Chatbot({
   };
 
   const phone = siteData?.contact?.phone || '0221 618-6574';
+  const email = siteData?.contact?.email || 'escribaniabarzola@gmail.com';
   const whatsappNumber = siteData?.contact?.whatsappNumber || '0221 618-6574';
   const cleanPhone = phone.replace(/[^0-9]/g, '');
   const cleanWhatsapp = whatsappNumber.replace(/[^0-9]/g, '');
@@ -286,24 +288,24 @@ export function Chatbot({
 
                     {/* Direct Contact Buttons if bot requires contact (Regla fundamental) */}
                     {isBot && msg.requiresContact && (
-                      <div className="mt-3.5 pt-3 border-t border-[#EFE5D7] flex flex-col sm:flex-row gap-2">
-                        <a
-                          href={`tel:${cleanPhone}`}
-                          className="flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-[#EFE8DC] hover:bg-[#E4DCCE] text-[#342721] border border-[#DACDBD] text-xs font-semibold transition-colors"
-                        >
-                          <Phone className="w-3.5 h-3.5 text-[#9A4E38]" />
-                          <span>Llamar a la escribanía</span>
-                        </a>
+                      <div className="mt-3.5 pt-3 border-t border-[#EFE5D7] flex flex-col gap-2">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                          <a
+                            href={`tel:${cleanPhone}`}
+                            className="flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-[#EFE8DC] hover:bg-[#E4DCCE] text-[#342721] border border-[#DACDBD] text-xs font-semibold transition-colors"
+                          >
+                            <Phone className="w-3.5 h-3.5 text-[#9A4E38]" />
+                            <span>Llamar por teléfono</span>
+                          </a>
 
-                        <a
-                          href={`https://wa.me/${cleanWhatsapp}?text=Hola,%20tengo%20una%20consulta%20para%20Escriban%C3%ADa%20Barzola`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-[#2B5E3F] hover:bg-[#204930] text-white text-xs font-semibold transition-colors"
-                        >
-                          <MessageCircle className="w-3.5 h-3.5" />
-                          <span>Consultar por WhatsApp</span>
-                        </a>
+                          <a
+                            href={`mailto:${email}?subject=Consulta%20Escriban%C3%ADa%20Barzola`}
+                            className="flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-[#FAF6F0] hover:bg-[#F2ECE1] text-[#342721] border border-[#DACDBD] text-xs font-semibold transition-colors"
+                          >
+                            <Mail className="w-3.5 h-3.5 text-[#9A4E38]" />
+                            <span>Enviar un correo</span>
+                          </a>
+                        </div>
                       </div>
                     )}
                   </div>

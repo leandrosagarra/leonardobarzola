@@ -43,9 +43,9 @@ function generateFallbackResponse(userMessage: string, knowledge: any): { reply:
     };
   }
 
-  if (text.includes("teléfono") || text.includes("telefono") || text.includes("celular") || text.includes("whatsapp") || text.includes("contacto") || text.includes("llamar") || text.includes("comunicarme")) {
+  if (text.includes("teléfono") || text.includes("telefono") || text.includes("celular") || text.includes("whatsapp") || text.includes("contacto") || text.includes("llamar") || text.includes("comunicarme") || text.includes("correo") || text.includes("email") || text.includes("mail")) {
     return {
-      reply: `Podés comunicarte telefónicamente al ${knowledge?.contact?.phone || "0221 618-6574"} o escribirnos por WhatsApp al mismo número.`,
+      reply: `Podés comunicarte telefónicamente al ${knowledge?.contact?.phone || "0221 618-6574"} o escribirnos por correo electrónico a ${knowledge?.contact?.email || "escribaniabarzola@gmail.com"}.`,
       requiresContact: true
     };
   }
@@ -113,6 +113,7 @@ INFORMACIÓN OFICIAL DE ESCRIBANÍA BARZOLA:
 - Ubicación / Dirección: ${knowledge?.contact?.address || "Calle 48 nº 874, primer piso oficina 24, La Plata, Provincia de Buenos Aires, Argentina"}
 - Teléfono: ${knowledge?.contact?.phone || "0221 618-6574"}
 - WhatsApp: ${knowledge?.contact?.phone || "0221 618-6574"}
+- Correo electrónico: ${knowledge?.contact?.email || "escribaniabarzola@gmail.com"}
 - Horarios de atención:
   * Lunes a jueves: ${knowledge?.schedule?.weekdays || "9:00 a 16:00"}
   * Viernes: ${knowledge?.schedule?.friday || "9:00 a 14:30"}

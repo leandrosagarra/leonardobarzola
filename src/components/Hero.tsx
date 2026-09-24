@@ -31,8 +31,9 @@ export function Hero({ schedule, onOpenChat }: HeroProps) {
         </h1>
 
         {/* Subtitle */}
-        <p className="mt-6 text-lg sm:text-xl text-[#58493F] leading-relaxed max-w-2xl mx-auto font-normal">
-          Te acompañamos y asesoramos para que cada trámite sea más simple, claro y seguro.
+        <p className="mt-5 sm:mt-6 text-[13px] min-[360px]:text-[13.5px] min-[390px]:text-[15px] sm:text-xl md:text-[22px] text-[#58493F] leading-snug sm:leading-relaxed max-w-3xl mx-auto font-normal tracking-tight sm:tracking-normal">
+          <span className="block">Te acompañamos y asesoramos para que cada trámite</span>
+          <span className="block mt-0.5 sm:mt-0">sea más simple, claro y seguro.</span>
         </p>
 
         {/* Action Buttons */}

@@ -58,10 +58,10 @@ function generateFallbackResponse(userMessage: string, knowledge: any): { reply:
     };
   }
 
-  // Phone / WhatsApp / Contact
-  if (text.includes("teléfono") || text.includes("telefono") || text.includes("celular") || text.includes("whatsapp") || text.includes("contacto") || text.includes("llamar") || text.includes("comunicarme")) {
+  // Phone / WhatsApp / Email / Contact
+  if (text.includes("teléfono") || text.includes("telefono") || text.includes("celular") || text.includes("whatsapp") || text.includes("contacto") || text.includes("llamar") || text.includes("comunicarme") || text.includes("correo") || text.includes("email") || text.includes("mail")) {
     return {
-      reply: `Podés comunicarte telefónicamente al ${knowledge?.contact?.phone || "0221 618-6574"} o escribirnos por WhatsApp al mismo número.`,
+      reply: `Podés comunicarte telefónicamente al ${knowledge?.contact?.phone || "0221 618-6574"} o escribirnos por correo electrónico a ${knowledge?.contact?.email || "escribaniabarzola@gmail.com"}.`,
       requiresContact: true
     };
   }
@@ -169,6 +169,7 @@ INFORMACIÓN OFICIAL DE ESCRIBANÍA BARZOLA:
 - Ubicación / Dirección: ${knowledge?.contact?.address || "Calle 48 nº 874, primer piso oficina 24, La Plata, Provincia de Buenos Aires, Argentina"}
 - Teléfono: ${knowledge?.contact?.phone || "0221 618-6574"}
 - WhatsApp: ${knowledge?.contact?.phone || "0221 618-6574"}
+- Correo electrónico: ${knowledge?.contact?.email || "escribaniabarzola@gmail.com"}
 - Horarios de atención:
   * Lunes a jueves: ${knowledge?.schedule?.weekdays || "9:00 a 16:00"}
   * Viernes: ${knowledge?.schedule?.friday || "9:00 a 14:30"}
@@ -190,7 +191,7 @@ REGLAS ABSOLUTAS QUE DEBÉS CUMPLIR (SIN EXCEPCIÓN):
 2. REGLA FUNDAMENTAL: No inventes información. No inventes requisitos, documentación, costos, honorarios, impuestos, plazos, procedimientos ni interpretaciones jurídicas.
 3. Si la información disponible en los datos de arriba no es suficiente para responder con total seguridad, o si te consultan por costos, honorarios exactos, valuaciones fiscales, o un caso judicial/familiar específico complejo, debés responder exactamente:
 "Ese caso requiere una consulta particular con la escribanía. Podés comunicarte directamente para recibir asesoramiento."
-4. Recordá que la escribanía NO tiene turnero ni sistema de turnos online. La atención o consultas se canalizan visitando la escribanía en los horarios de atención, llamando por teléfono o escribiendo por WhatsApp.
+4. Recordá que la escribanía NO tiene turnero ni sistema de turnos online. La atención o consultas se canalizan visitando la escribanía en los horarios de atención, llamando por teléfono o escribiendo a escribaniabarzola@gmail.com.
 5. Nunca des consejos legales concluyentes ni reemplaces el criterio del escribano. Tu rol es de orientación e información.
 `;
 

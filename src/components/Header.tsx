@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Phone, Menu, X, Shield, Lock } from 'lucide-react';
+import { Phone, Mail, Menu, X, Shield, Lock } from 'lucide-react';
 import { ContactInfo } from '../types';
 
 interface HeaderProps {
@@ -11,6 +11,7 @@ interface HeaderProps {
 export function Header({ contact, onOpenAdmin, onOpenChat }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const phone = contact?.phone || '0221 618-6574';
+  const email = contact?.email || 'escribaniabarzola@gmail.com';
   const cleanPhone = phone.replace(/[^0-9]/g, '');
 
   const navLinks = [
@@ -55,15 +56,25 @@ export function Header({ contact, onOpenAdmin, onOpenChat }: HeaderProps) {
           </nav>
 
           {/* Header Action Buttons */}
-          <div className="hidden sm:flex items-center gap-2.5">
-            <a
-              href={`tel:${cleanPhone}`}
-              className="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold rounded-lg text-[#362C26] bg-[#EFE9DF] hover:bg-[#E4DCCE] transition-colors border border-[#DDD3C2] shadow-2xs"
-              title={`Llamar a ${phone}`}
-            >
-              <Phone className="w-3.5 h-3.5 text-[#9A4E38]" />
-              <span>{phone}</span>
-            </a>
+          <div className="hidden sm:flex items-center gap-3">
+            <div className="flex flex-col items-end text-right">
+              <a
+                href={`tel:${cleanPhone}`}
+                className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#362C26] hover:text-[#9A4E38] transition-colors leading-tight"
+                title={`Llamar a ${phone}`}
+              >
+                <Phone className="w-3.5 h-3.5 text-[#9A4E38]" />
+                <span>{phone}</span>
+              </a>
+              <a
+                href={`mailto:${email}`}
+                className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-medium text-[#6E5A4D] hover:text-[#9A4E38] hover:underline transition-colors mt-0.5 leading-tight"
+                title={`Enviar correo a ${email}`}
+              >
+                <Mail className="w-3 h-3 text-[#9A4E38]" />
+                <span>{email}</span>
+              </a>
+            </div>
 
             <button
               onClick={onOpenAdmin}
@@ -111,13 +122,21 @@ export function Header({ contact, onOpenAdmin, onOpenChat }: HeaderProps) {
             ))}
           </div>
 
-          <div className="mt-5 pt-4 border-t border-[#EAE3D6]">
+          <div className="mt-5 pt-4 border-t border-[#EAE3D6] space-y-2">
             <a
               href={`tel:${cleanPhone}`}
               className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg text-sm font-semibold bg-[#42342D] text-[#FAF6F0]"
             >
               <Phone className="w-4 h-4 text-[#D8C7B0]" />
               <span>Llamar al {phone}</span>
+            </a>
+
+            <a
+              href={`mailto:${email}`}
+              className="flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-semibold bg-[#EFE8DC] text-[#3E3027] border border-[#DDD3C2]"
+            >
+              <Mail className="w-3.5 h-3.5 text-[#9A4E38]" />
+              <span>{email}</span>
             </a>
           </div>
 
